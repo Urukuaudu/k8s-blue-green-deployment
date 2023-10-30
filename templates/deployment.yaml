@@ -5,15 +5,15 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: bg-demo-app
+      app: web
   replicas: {{.Values.replicas}}
   template:
     metadata:
       labels:
-        app: bg-demo-app
+        app: webapp
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.14.2
+      - name: webapp
+        image: uruku/webapp
         ports:
-        - containerPort: 80
+        - containerPort: 5000
