@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.name}}
+spec:
+  selector:
+    matchLabels:
+      app: web
+  replicas: {{.Values.replicas}}
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: webapp
+        image: uruku/webapp
+        ports:
+        - containerPort: 5000
